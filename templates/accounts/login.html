@@ -1,0 +1,5 @@
+{% include 'messages.html' %}
+<form method="POST" action=".">
+  {% csrf_token %} {{ form.as_p}}
+  <button type="submit">login</button>
+</form>

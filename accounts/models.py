@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from .manager import UserManager
 from django.utils import timezone
+from django.urls import reverse_lazy
 
 
 def get_profile_image_filepath(self, filename):
@@ -26,7 +27,11 @@ class User(AbstractUser):
     objects = UserManager()
 
     def __str__(self):
-        return self.name+ ': ' + self.email
+        return self.email
+    
+    def get_absolute_url(self):
+        if not self.is_verified:
+            return reverse_lazy('send-activation', kwargs={'email': self.email})
 
 class Address(models.Model):
     title = models.CharField(max_length=50, null=True, blank=True)
@@ -55,8 +60,9 @@ class Token(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     expires_at = models.DateTimeField()
 
+    def __str__(self):
+        return f'{self.user.email} - {self.token_type} - {self.is_valid()}'
+    
     def is_valid(self):
         return self.expires_at > timezone.now()
     
-    def __str__(self):
-        return f'{self.user.email} - {self.token_type} - {self.is_valid()}'
