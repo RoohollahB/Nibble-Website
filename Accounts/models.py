@@ -1,7 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from .manager import UserManager
-from django.utils import timezone
 from django.urls import reverse_lazy
 
 
@@ -22,6 +21,7 @@ class User(AbstractUser):
     phone_number = models.CharField(max_length=20, null=True, blank=True)
     profile_image = models.ImageField(max_length=255, upload_to=get_profile_image_filepath, null=True, blank=True,
                                       default=get_default_profile_image)
+    is_verified = models.BooleanField(default=False)
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['name']
 
@@ -29,11 +29,6 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.email
-
-    def get_absolute_url(self):
-        if not self.is_active:
-            return reverse_lazy('admin')
-            # return reverse_lazy('send-activation', kwargs={'email': self.email})
 
 
 class Address(models.Model):
