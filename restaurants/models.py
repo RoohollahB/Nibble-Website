@@ -1,4 +1,5 @@
 from django.db import models
+
 from accounts.models import User
 
 
@@ -18,8 +19,14 @@ def get_default_food_image_filepath():
     return f'images/food_default.png'
 
 
+def get_category_image_filepath(self, filename):
+    return f'images/category/{self.title}/{str(filename)}'
+
+
 class Category(models.Model):
     title = models.CharField(max_length=100, unique=True)
+    icon = models.ImageField(upload_to=get_category_image_filepath,
+                             default='images/category/default.png')
 
     def __str__(self):
         return self.title
@@ -57,4 +64,3 @@ class Favorite(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     food = models.ForeignKey(Food, on_delete=models.CASCADE)
-

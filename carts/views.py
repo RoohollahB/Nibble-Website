@@ -20,22 +20,20 @@ def add_to_cart(request):
     order, created = Order.objects.get_or_create(user=request.user, is_submited=False)
     if request.method == "POST":
         food_id = int(request.POST.get("food_id"))
+        quantity = int(request.POST.get("quantity"))
         food = Food.objects.get(id=int(food_id))
         restaurant = food.restaurant
         if created:
-            CartItem.objects.create(food=food, order=order, quantity=1, restaurant=restaurant)
+            CartItem.objects.create(food=food, order=order, quantity=quantity, restaurant=restaurant)
         else:
             is_added = order.cartitem_set.filter(food=food).exists()
             if is_added:
-                messages.info(request, "Food is already in cart")
+                item = CartItem.objects.get(food=food, order=order,restaurant=restaurant)
+                item.quantity += quantity
+                item.save()
             else:
-                CartItem.objects.create(order=order, food=food, quantity=1, restaurant=restaurant)
+                CartItem.objects.create(order=order, food=food, quantity=quantity, restaurant=restaurant)
                 messages.info(request, "Food added successfully")
-
-        # restaurant = food.restaurant
-        # cart_item, created = CartItem.objects.get_or_create(food=food, user=request.user, restaurant=restaurant)
-        # cart_item.quantity += 1
-        # cart_item.save()
         return redirect('view_cart')
 
 

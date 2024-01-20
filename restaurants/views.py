@@ -2,9 +2,10 @@ from django.shortcuts import render
 from .models import Food, Restaurant, Favorite, Category
 from django.views.generic import ListView, DetailView
 
+
 class HomeView(ListView):
     model = Restaurant
-    template_name = 'home.html'
+    template_name = 'restaurants/home.html'
 
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
@@ -20,12 +21,12 @@ class RestaurantsView(ListView):
 
 class RestaurantDetailView(DetailView):
     model = Restaurant
-    template_name = 'restaurant.html'
+    template_name = 'restaurants/restaurant.html'
 
 
 class FoodDetailView(DetailView):
     model = Food
-    template_name = 'food.html'
+    template_name = 'restaurants/food.html'
 
 
 class CategoryDetailView(DetailView):
