@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <title>Centered Bootstrap Modal</title>
+  <style>
+    /* Custom CSS to center the modal */
+    .modal-dialog {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+  </style>
+
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <link href="https://fonts.googleapis.com/css?family=Karla:400,700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+  <link rel="stylesheet" href="assets/css/person.css" />
+</head>
+
+<body>
+
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+    change Personal information
+  </button>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Personal information</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+
+          <p style="margin-right: 10px;">Profile image</p>
+
+
+          <div style="display: flex; align-items: center; margin: 10px; padding: 10px;">
+            <div style="display: flex; align-items: center; margin: 10px; padding: 10px;">
+              <img src="person.png" alt="Profile Image" style="width: 50px; height: 50px; border-radius: 50%;">
+            </div>
+
+              <button type="button" class="btn btn-danger ml-2" style="margin: 10px;">Delete</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+
+            <main class="d-flex align-items-center max-vh-90 py-3 py-md-0">
+              <div class="container">
+                <div class="card login-card">
+                  <div class="row no-gutters">
+
+                    <div class="col-md-7">
+                      <div class="card-body">
+                        <p class="login-card-description">Profile details</p>
+                        <form method="POST">
+                          <div class="form-group">
+                            <label for="email" class="sr-only"><label for="id_name">Name:</label></label>
+                            <span class="fs-6 text-reset"></span>
+                            <input type="text" name="name" class="form-control" placeholder="Enter your full name"
+                              maxlength="50" required id="id_name" />
+                          </div>
+
+                          <div class="form-group">
+                            <label for="email" class="sr-only"><label for="id_email">Email:</label></label>
+                            <span class="fs-6 text-reset"></span>
+                            <input type="email" name="email" class="form-control" placeholder="Email Address"
+                              maxlength="254" autofocus required id="id_email" />
+                          </div>
+
+                          <div class="form-group">
+                            <label for="email" class="sr-only"><label for="id_password1">Password1:</label></label>
+                            <span class="fs-6 text-reset"></span>
+                            <input type="password" name="password1" placeholder="**********" class="form-control"
+                              required id="id_password1" />
+                          </div>
+
+                          <!-- <input name="register" id="register" class="btn btn-block login-btn mb-4" type="submit"
+                          value="Register" style="background-color: #4723d9" /> -->
+                        </form>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </main>
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary btn-purple" data-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
