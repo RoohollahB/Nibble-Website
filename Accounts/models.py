@@ -4,7 +4,7 @@ from .manager import UserManager
 from django.urls import reverse_lazy
 
 
-def get_profile_image_filepath(self, filename):
+def get_profile_image_filepath(self):
     return 'profile/profile_images/' + str(self.pk) + '/profile_image.png'
 
 
