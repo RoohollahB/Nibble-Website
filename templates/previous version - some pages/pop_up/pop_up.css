@@ -1,0 +1,305 @@
+/*
+	@name pop_up
+*/
+/* Only edit this if you know what you are doing! */
+body { margin: 0px; padding: 0px; font-family:"Arial"; overflow-x:hidden; }
+
+/* Only edit this if you know what you are doing! */
+img { position: absolute; display: block; margin: 0px; border: none; padding: 0px; }
+
+/* Only edit this if you know what you are doing! */
+div { position: absolute; }
+
+#content-container { display: block; position: relative; width: 400px; width: 400px; height: 356px; overflow: hidden; display: block;  margin-left: auto; margin-right: auto;  }
+
+
+#page_pop_up_ek1 {
+	top: 0px;
+	left: 0px;
+	width: 400px;
+	height: 356px;
+}
+
+#_bg__pop_up_ek2 {
+	top: 0px;
+	left: 0px;
+	width: 400px;
+	height: 356px;
+	background:rgba(255,255,255,1);
+}
+
+#pop_up_container {
+	top: 0px;
+	left: 0px;
+	width: 400px;
+	height: 356px;
+}
+
+#_bg__pop_up_container_ek1 {
+	top: 0px;
+	left: 0px;
+	width: 400px;
+	height: 356px;
+	background:#;
+}
+
+
+#background {
+	top: 0px;
+	left: 0px;
+	width: 400px;
+	height: 356px;
+	-ms-border-radius: 16px;
+	-o-border-radius: 16px;
+	-moz-border-radius: 16px;
+	-webkit-border-radius: 16px;
+	border-radius: 16px;
+	background:rgba(255,255,255,1);
+}
+
+#buttons {
+	top: 260px;
+	left: 32px;
+	width: 336px;
+	height: 64px;
+}
+
+#_bg__buttons_ek1 {
+	top: -260px;
+	left: -32px;
+	width: 336px;
+	height: 64px;
+	background:#;
+}
+
+#send_again_button {
+	top: 0px;
+	left: 176px;
+	width: 160px;
+	height: 64px;
+}
+
+#_bg__send_again_button_ek1 {
+	top: -260px;
+	left: -208px;
+	width: 160px;
+	height: 64px;
+	background:#;
+}
+
+
+#background_ek1 {
+	top: 0px;
+	left: 0px;
+	width: 160px;
+	height: 64px;
+	-ms-border-radius: 12px;
+	-o-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+	background:rgba(247,247,247,1);
+}
+
+
+#text {
+	top: 16px;
+	left: 13px;
+	width: 135px;
+	height: 38px;
+	overflow: hidden;
+	font-family: Open Sans;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 32px;
+	margin-top: -4px;
+	height: 58px;
+	color:#172135;
+}
+
+#buttons_primary_large_no_icon {
+	top: 0px;
+	left: 0px;
+	width: 160px;
+	height: 64px;
+}
+
+#_bg__buttons_primary_large_no_icon_ek1 {
+	top: 0px;
+	left: 0px;
+	width: 160px;
+	height: 64px;
+	background:#;
+}
+
+
+#background_ek2 {
+	top: 0px;
+	left: 0px;
+	width: 160px;
+	height: 64px;
+	-ms-border-radius: 12px;
+	-o-border-radius: 12px;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	border-radius: 12px;
+	background:rgba(80,62,157,1);
+}
+
+
+#text_ek1 {
+	top: 16px;
+	left: 5.89px;
+	width: 149.22px;
+	height: 38px;
+	overflow: hidden;
+	font-family: Open Sans;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 32px;
+	margin-top: -4px;
+	height: 58px;
+	color:#F7FAFC;
+}
+
+#text_content {
+	top: 120px;
+	left: 32px;
+	width: 336px;
+	height: 92px;
+}
+
+#_bg__text_content_ek1 {
+	top: -120px;
+	left: -32px;
+	width: 336px;
+	height: 92px;
+	background:#;
+}
+
+
+#body_text {
+	top: 44px;
+	left: -2px;
+	width: 342.4px;
+	height: 52.4px;
+	overflow: hidden;
+	font-family: Open Sans;
+	font-size: 14px;
+	text-align: center;
+	line-height: 24px;
+	margin-top: -3.3333333333333px;
+	height: 66.4px;
+	color:#626264;
+}
+
+
+#title {
+	top: 0px;
+	left: -4px;
+	width: 343.4px;
+	height: 39.4px;
+	overflow: hidden;
+	font-family: Open Sans;
+	font-size: 24px;
+	font-weight: bold;
+	text-align: center;
+	line-height: 32px;
+	color:#172135;
+}
+
+#icons_icon_fill_64px_24px_icon_inside {
+	top: 32px;
+	left: 168px;
+	width: 64px;
+	height: 64px;
+}
+
+#_bg__icons_icon_fill_64px_24px_icon_inside_ek1 {
+	top: 0px;
+	left: 0px;
+	width: 64px;
+	height: 64px;
+	background:#;
+}
+
+
+#background_ek3 {
+	top: 0px;
+	left: 0px;
+	width: 64px;
+	height: 64px;
+	-ms-border-radius: 16px;
+	-o-border-radius: 16px;
+	-moz-border-radius: 16px;
+	-webkit-border-radius: 16px;
+	border-radius: 16px;
+	background:rgba(80,62,157,1);
+}
+
+#icons_24px_mail {
+	top: 20px;
+	left: 20px;
+	width: 24px;
+	height: 24px;
+}
+
+#_bg__icons_24px_mail_ek1 {
+	top: 0px;
+	left: 0px;
+	width: 24px;
+	height: 24px;
+	background:#;
+}
+
+
+#boudning_box {
+	top: px;
+	left: px;
+	width: 24px;
+	height: 24px;
+	background:rgba(255,255,255,0);
+}
+
+
+#icon {
+	top: 3px;
+	left: 0px;
+	width: 24px;
+	height: 19px;
+}
+
+#icon_16px_close {
+	top: 32px;
+	left: 352px;
+	width: 16px;
+	height: 16px;
+}
+
+#_bg__icon_16px_close_ek1 {
+	top: 0px;
+	left: 0px;
+	width: 16px;
+	height: 16px;
+	background:#;
+}
+
+
+#bounding_box {
+	top: 0px;
+	left: 0px;
+	width: 16px;
+	height: 16px;
+	background:rgba(255,255,255,0);
+}
+
+
+#icon_ek1 {
+	top: 0px;
+	left: 0px;
+	width: 16px;
+	height: 16px;
+}
+
