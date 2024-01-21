@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="row">
+      <p class="col-10 fs-3 fw-bold">Favorite Restaurants</p>
+    {% for favorite in favorite_list %}
+
+        <div class="col-md-3 p-2">
+        <a class="card p-2 bg-black-25 text-dark rounded-3" href="{% url 'restaurant_detail' pk=restaurant.pk %}">
+          <div class="d-flex flex-row mb-3 justify-content-start">
+            <img src="{{ favorite.restaurant.image.url }}"  width="75px" height="75px"/>
+            <div class="d-flex flex-column ml-2 p-2">
+              <span class="fw-bold">{{ favorite.restaurant.name }}</span>
+              <div class="d-flex flex-row justify-content-around">
+                <span class="ratings"
+                  ><i class="fa fa-star text-warning"></i> {{ favorite.restaurant.rating }}</span
+                >
+              </div>
+              <div class="text-muted">{{ favorite.restaurant.category.title }}</div>
+            </div>
+          </div>
+        </a>
+      </div>
+
+        {% endfor %}
+</div>
+    <div class="row">
+      <p class="col-10 fs-3 fw-bold">Favorite Foods</p>
+    {% for favorite in favorite_list %}
+                <div class="col mb-5">
+            <div class="card h-100">
+              <!-- Product image-->
+              <img
+                class="card-img-top"
+                src="{{ favorite.food.image.url }}"
+                alt="..."
+              />
+              <!-- Product details-->
+              <div class="card-body p-4">
+                <div class="text-center">
+                  <!-- Product name-->
+                  <h5 class="fw-bolder">{{ favorite.food.name }}</h5>
+                  <!-- Product price-->
+                  ${{ favorite.food.price }}
+                </div>
+              </div>
+              <!-- Product actions-->
+              <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                <div class="text-center">
+                  <a class="btn btn-outline-primary mt-auto btn-color" href="{% url 'food_detail' pk=favorite.food.pk%}"
+                    >View</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+            {% endfor %}
+    </div>
+{% endblock %}

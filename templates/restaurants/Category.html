@@ -1,26 +1,9 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block content %}
-    <div class="height-100">
-  <div class="container-fluid">
     <div class="row">
-      <h3 class="p-3 fw-bold">Categories</h3>
-        {% for categ in categories %}
-            <div class="col-auto">
-        <a class="card p-2" href="{% url 'category_detail' pk=categ.pk %}">
-          <div class="d-flex flex-column mb-1 align-items-center">
-              <img src="{{ categ.icon.url }}" width="32px" alt="">
-            <span class="p-2 text-dark fw-bold">{{ categ.title }}</span>
-          </div>
-        </a>
-      </div>
-        {% endfor %}
-    </div>
-    <div class="row">
-      <p class="col-10 fs-3 fw-bold">Featured Restaurants</p>
-      <a href="{% url 'restaurants' %}" class="col-2 text-indigo text-decoration-underline"
-        >See All <i class="fas fa-angle-right"></i
-      ></a>
-    {% for restaurant in restaurant_list %}
+      <p class="col-10 fs-3 fw-bold">{{ category.title }} Restaurants</p>
+    {% for restaurant in category.restaurant_set.all %}
 
         <div class="col-md-3 p-2">
         <a class="card p-2 bg-black-25 text-dark rounded-3" href="{% url 'restaurant_detail' pk=restaurant.pk %}">
@@ -40,7 +23,4 @@
       </div>
 
         {% endfor %}
-    </div>
-  </div>
-</div>
 {% endblock %}

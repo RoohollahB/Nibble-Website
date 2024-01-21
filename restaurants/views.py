@@ -17,7 +17,8 @@ class HomeView(ListView):
 
 class RestaurantsView(ListView):
     model = Restaurant
-    template_name = 'restaurant_list.html'
+    template_name = 'restaurants/restaurant_list.html'
+
 
 class RestaurantDetailView(DetailView):
     model = Restaurant
@@ -31,9 +32,9 @@ class FoodDetailView(DetailView):
 
 class CategoryDetailView(DetailView):
     model = Category
-    template_name = 'category.html'
+    template_name = 'restaurants/category.html'
 
 
 class FavoritesView(ListView):
     model = Favorite
-    template_name = 'favorites.html'
+    template_name = 'restaurants/favorite_list.html'

@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
- <section class="py-1">
+ <section class="py-1 food-data">
       <div class="container px-4 px-lg-5 my-5">
         <div class="row gx-4 gx-lg-5 align-items-center">
           <div class="col-md-6">
@@ -24,6 +24,8 @@
               delectus ipsam minima ea iste laborum vero?
             </p>
               <div class="d-flex">
+                  {% csrf_token %}
+                  <input type="hidden" value="{{ food.pk }}" class="food_id">
               <input
                 class="form-control text-center me-3"
                 id="inputQuantity"
@@ -31,7 +33,7 @@
                 value="1"
                 style="max-width: 3rem"
               />
-              <button class="btn btn-outline-dark flex-shrink-0" type="button">
+              <button class="btn btn-outline-primary flex-shrink-0" id="add-to-cart-btn" type="button">
                 <i class="bi-cart-fill me-1"></i>
                 Add to cart
               </button>
@@ -40,4 +42,7 @@
         </div>
       </div>
     </section>
+{% endblock %}
+{% block scripts %}
+    <script src="{% static 'script/add_to_cart.js' %}"></script>
 {% endblock %}

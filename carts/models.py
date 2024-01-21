@@ -13,20 +13,14 @@ class Discount(models.Model):
     description = models.TextField()
 
 
-class Cart(models.Model):
-    total_price = models.IntegerField()
-    discount = models.ForeignKey(Discount, on_delete=models.PROTECT)
-    user = models.ForeignKey(User, on_delete=models.CASCADE)
-
 
 class Order(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-    cart = models.OneToOneField(Cart, on_delete=models.CASCADE)
-    discount = models.ForeignKey(Discount, on_delete=models.CASCADE)
-    submitted_at = models.DateTimeField()
+    discount = models.ForeignKey(Discount, on_delete=models.CASCADE, null=True, blank=True)
+    submitted_at = models.DateTimeField(null=True, blank=True)
     is_ordered = models.BooleanField(default=False)
     is_submited = models.BooleanField(default=False)
-    delivery_code = models.CharField(max_length=5)
+    delivery_code = models.CharField(max_length=5, null=True, blank=True)
 
 
 class CartItem(models.Model):

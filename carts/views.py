@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import Cart, CartItem, Discount, Order
+from .models import CartItem, Discount, Order
 from accounts.models import User
 from restaurants.models import Food, Restaurant
 from django.views.generic import ListView, DetailView
@@ -15,26 +15,29 @@ def view_cart(request):
     return render(request, 'cart/cart.html', {"cart_items": cart_items, "total_price": total_price})
 
 
-@login_required
 def add_to_cart(request):
-    order, created = Order.objects.get_or_create(user=request.user, is_submited=False)
-    if request.method == "POST":
-        food_id = int(request.POST.get("food_id"))
-        quantity = int(request.POST.get("quantity"))
-        food = Food.objects.get(id=int(food_id))
-        restaurant = food.restaurant
-        if created:
-            CartItem.objects.create(food=food, order=order, quantity=quantity, restaurant=restaurant)
-        else:
-            is_added = order.cartitem_set.filter(food=food).exists()
-            if is_added:
-                item = CartItem.objects.get(food=food, order=order,restaurant=restaurant)
-                item.quantity += quantity
-                item.save()
+    if request.user.is_authenticated:
+        order, created = Order.objects.get_or_create(user=request.user, is_submited=False)
+        print("hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh")
+        if request.method == "POST":
+            food_id = int(request.POST.get("food_id"))
+            quantity = int(request.POST.get("quantity"))
+            food = Food.objects.get(id=int(food_id))
+            restaurant = food.restaurant
+            if created:
+                CartItem.objects.create(food=food, order=order, quantity=quantity, restaurant=restaurant)
             else:
-                CartItem.objects.create(order=order, food=food, quantity=quantity, restaurant=restaurant)
-                messages.info(request, "Food added successfully")
-        return redirect('view_cart')
+                is_added = order.cartitem_set.filter(food=food).exists()
+                if is_added:
+                    item = CartItem.objects.get(food=food, order=order,restaurant=restaurant)
+                    item.quantity += quantity
+                    item.save()
+                else:
+                    CartItem.objects.create(order=order, food=food, quantity=quantity, restaurant=restaurant)
+                    messages.info(request, "Food added successfully")
+            return redirect('/')
+    else:
+        return redirect('login')
 
 
 def remove_from_cart(request, item_id):
